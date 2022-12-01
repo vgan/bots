@@ -11,11 +11,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  line-height: 1;
+}
+
+img:hover {
+  border: solid 2px black;
+  background-color: black;
+}
+
 /* Float four columns side by side */
 .column {
   float: left;
   width: 25%;
-  padding: 0 10px;
+  height: 25%;
+  padding: 10px 10px 10px 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -29,7 +41,7 @@ body {
 }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 350px) {
   .column {
     width: 100%;
     display: block;
@@ -40,7 +52,7 @@ body {
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  padding: 16px,16px,16px,16px;
   text-align: center;
   background-color: #f1f1f1;
 }
@@ -49,46 +61,116 @@ body {
 <body>
 
 <h2>Creative Bots</h2>
-<p>Some of my recent bots.  - <a href="https://mastodon.social/@vgan">Steve</a></p>
+<p>Some of my recent Mastodon/ Fediverse bots.  - <a href="https://mastodon.social/@vgan" rel="me">Steve</a></p>
 
 <div class="row">
   <div class="column">
     <div class="card">
+      <br />
       <h3>AI Art Bot</h3>
       <a href="https://botsin.space/@ai_art_bot" target="_blank"><img src="ai_art_bot.png" height="100px" alt="@ai_art_bot@botsin.space"/></a>
       <p>Procedurally generated Stable Diffusion images.</p>
-      <p>Prompts are generated using python and google sheets api and fed into a docker container.</p>
-      <button onclick="javascript:window.open('https://botsin.space/@ai_art_bot', '_blank');">Link</button>
+      <p>⚙️  Python, SD 1.4, Google Sheets API</p>
+      <br />
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <br />
+      <h3>Magic Aye</h3>
+      <a href="https://botsin.space/@magic_aye" target="_blank"><img src="magic_aye.png" height="100px" alt="@magic_aye@botsin.space"/></a>
+      <p>Procedurally generated autostereogram (magic eye) images.</p>
+      <p>⚙️  Python, imageMagick</p>
+      <br />
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <br />
+      <h3>Twilight Zone Intros</h3>
+      <a href="https://botsin.space/@rodserlingzone" target="_blank"><img src="rodserlingzone.png" height="100px" alt="@rodserlingzone@botsin.space"/></a>
+      <p>Procedurally generated Twilight Zone Intros.</p>
+      <p>⚙️  Python, imageMagick</p>
+      <br />
     </div>
   </div>
 
   <div class="column">
     <div class="card">
+      <br />
       <h3>Chest Bot</h3>
       <a href="https://botsin.space/@chest_bot" target="_blank"><img src="chest_bot.png" height="100px" alt="@chest_bot@botsin.space"/></a>
-      <p>An interactive bot/ game which procedurally generates chest contents.</p>
-      <p>Uses python and stores data in an SQLite database.</p>
-      <button onclick="javascript:window.open('https://botsin.space/@chest_bot', '_blank');">Link</button>
+      <p>Interactive game with procedurally generated chest contents.</p>
+      <p>⚙️  Python, SQLite</p>
+      <br />
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <br />
+      <h3>Fedibank ATM</h3>
+      <a href="https://botsin.space/@atm" target="_blank"><img src="atm.png" height="100px" alt="@atm@botsin.space"/></a>
+      <p>Saves your currency and up to 6 items from Chest Bot.</p>
+      <p>⚙️  Python, SQLite</p>
+      <br />
     </div>
   </div>
   
   <div class="column">
     <div class="card">
-      <h3>Magic Aye</h3>
-      <a href="https://botsin.space/@magic_aye" target="_blank"><img src="magic_aye.png" height="100px" alt="@magic_aye@botsin.space"/></a>
-      <p>Procedurally generates autostereogram (magic eye) images from a list of tiles and depth maps.</p>
-      <p>Uses python and imageMagick to generate the images.</p>
-      <button onclick="javascript:window.open('https://botsin.space/@magic_aye', '_blank');">Link</button>
+      <br />
+      <h3>Shop Keeper</h3>
+      <a href="https://botsin.space/@shop_keeper" target="_blank"><img src="shop_keeper.png" height="100px" alt="@shop_keeper@botsin.space"/></a>
+      <p>Purchase items using currency from Chest Bot via ATM.</p>
+      <p>⚙️  Python, SQLite</p>
+      <br />
     </div>
   </div>
-  
+
   <div class="column">
     <div class="card">
-      <h3>Twilight Zone Intros</h3>
-      <a href="https://botsin.space/@rodserlingzone" target="_blank"><img src="rodserlingzone.png" height="100px" alt="@rodserlingzone@botsin.space"/></a>
-      <p>Procedurally generates fake Twilight Zone Intros.</p>
-      <p>Uses python and imageMagick to caption a list of screenshots.</p>
-      <button onclick="javascript:window.open('https://botsin.space/@rodserlingzone', '_blank');">Link</button>
+      <br />
+      <h3>Spanish Flashcards</h3>
+      <a href="https://botsin.space/@spanishflashcards" target="_blank"><img src="spanish_flashcards.png" height="100px" alt="@spanishflashcards@botsin.space"/></a>
+      <p>Spanish flashcards using CW field to hide definitions.</p>
+      <p>⚙️  Python, Merriam-Webster API</p>
+      <br />
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <br />
+      <h3>Lunch Oracle</h3>
+      <a href="https://botsin.space/@lunch_oracle" target="_blank"><img src="lunch_oracle.png" height="100px" alt="@lunch_oracle@botsin.space"/></a>
+      <p>An interactive bot which returns a random restaurant based on city.</p>
+      <p>⚙️  Python, Foursquare API</p>
+      <br />
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <br />
+      <h3>Ice-T SVU</h3>
+      <a href="https://botsin.space/@icetsvu" target="_blank"><img src="icetsvu.png" height="100px" alt="@icetsvu@botsin.space"/></a>
+      <p>Procedurally generated screenshots of Ice-T in SVU.</p>
+      <p>⚙️  Python, imageMagick</p>
+      <br />
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <br />
+      <h3>SVU Warnings</h3>
+      <a href="https://botsin.space/@svufuturedrugs" target="_blank"><img src="svufuturedrugs.png" height="100px" alt="@svufuturedrugs@botsin.space"/></a>
+      <p>Vintage arcade warning screens of drug names generated by Ice-T SVU.</p>
+      <p>⚙️  Python, imageMagick</p>
+      <br />
     </div>
   </div>
 
