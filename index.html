@@ -1,199 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title> CREATIVE BOTS </title>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  line-height: 1;
-}
-
-img:hover {
-  border: solid 2px black;
-  background-color: black;
-}
-
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px 10px 10px 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 400px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px,16px,16px,16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CREATIVE BOTS</title>
+  <style>
+    :root {
+      --card-bg: #f1f1f1;
+      --card-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+      --card-hover-shadow: 0 8px 24px 0 rgba(0,0,0,0.18);
+      --card-radius: 1rem;
+      --card-gap: 2rem;
+      --max-width: 1100px;
+      --primary: #222;
+      --secondary: #666;
+    }
+    html {
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #fafbfc;
+      color: var(--primary);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      font-size: 2.2rem;
+      letter-spacing: 0.05em;
+    }
+    .intro {
+      text-align: center;
+      color: var(--secondary);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--card-gap);
+      margin-bottom: 3rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 370px;
+    }
+    .card:focus-within, .card:hover {
+      box-shadow: var(--card-hover-shadow);
+      transform: translateY(-4px) scale(1.02);
+    }
+    .card img {
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      transition: border 0.2s, background 0.2s;
+    }
+    .card-link:focus img, .card-link:hover img {
+      border: 2px solid #222;
+      background: #222;
+    }
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .card p {
+      margin: 0.3rem 0;
+      color: var(--secondary);
+      font-size: 1rem;
+    }
+    .card .tech {
+      font-size: 0.95rem;
+      color: #888;
+      margin-top: auto;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    a:focus {
+      outline: 2px solid #222;
+      outline-offset: 2px;
+    }
+    .card.offline {
+      position: relative;
+      overflow: hidden;
+    }
+    .card.offline::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(30,30,30,0.0);
+      transition: background 0.2s;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .card.offline:hover::after,
+    .card.offline:focus-within::after {
+      background: rgba(30,30,30,0.45);
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem 0.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .card {
+        min-height: 320px;
+        padding: 1rem 0.5rem 0.5rem 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<h2>Creative Bots</h2>
-<p>I decided to retire a few bots when botsin.space went offline (R.I.P) and have not been working on bots at all lately due to getting busy with other things. I have also been mostly read-only on social media in general lately but I spend most of my time on bluesky if you want to reach me.  - <a href="https://bsky.app/@stevecvar.com" rel="me">Steve</a></p>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Chest Bot</h3>
-      <a href="https://mastodon.social/@chest_bot" target="_blank"><img src="chest_bot.png" height="200px" alt="@chest_bot@mastodon.social"/></a>
-      <p>Interactive, procedurally generated chest opening game.</p>
-      <p>⚙️  Python, SQLite</p>
-      <br />
+  <div class="container">
+    <h2>Creative Bots</h2>
+    <div class="intro">
+      I decided to retire a few bots when botsin.space went offline (R.I.P) and have not been working on bots at all lately due to getting busy with other things. I have also been mostly read-only on social media in general lately but I spend most of my time on bluesky if you want to reach me.  - <a href="https://bsky.app/@stevecvar.com" rel="me">Steve</a>
+    </div>
+    <div class="grid">
+      <a href="https://mastodon.social/@chest_bot" target="_blank" aria-label="Chest Bot on Mastodon" class="card-link">
+        <div class="card">
+          <h3>Chest Bot</h3>
+          <img src="chest_bot.png" alt="Chest Bot: Interactive, procedurally generated chest opening game" />
+          <p>Interactive, procedurally generated chest opening game.</p>
+          <div class="tech">⚙️ Python, SQLite</div>
+        </div>
+      </a>
+      <a href="https://mastodon.social/@chest_bot_atm" target="_blank" aria-label="ChestBot ATM on Mastodon" class="card-link">
+        <div class="card">
+          <h3>ChestBot ATM</h3>
+          <img src="atm.png" alt="ChestBot ATM: Saves your currency and up to 6 items received from Chest Bot" />
+          <p>Saves your currency and up to 6 items received from Chest Bot.</p>
+          <div class="tech">⚙️ Python, SQLite</div>
+        </div>
+      </a>
+      <a href="https://mastodon.social/@chest_bot_shop" target="_blank" aria-label="Shop Keeper on Mastodon" class="card-link">
+        <div class="card">
+          <h3>Shop Keeper</h3>
+          <img src="shop_keeper.png" alt="Shop Keeper: Purchase items using currency from Chest Bot" />
+          <p>Purchase items using currency from Chest Bot, which has been deposited to @ATM.</p>
+          <div class="tech">⚙️ Python, SQLite</div>
+        </div>
+      </a>
+      <a href="https://mastodon.social/@magic_aye" target="_blank" aria-label="Magic Aye on Mastodon" class="card-link">
+        <div class="card">
+          <h3>Magic Aye</h3>
+          <img src="magic_aye.png" alt="Magic Aye: Procedurally generated autostereograms, aka magic eye images" />
+          <p>Procedurally generated autostereograms, aka: magic eye images.</p>
+          <div class="tech">⚙️ Python, imageMagick</div>
+        </div>
+      </a>
+      <a href="https://mastodon.social/@icetsvu" target="_blank" aria-label="Ice-T SVU on Mastodon" class="card-link">
+        <div class="card">
+          <h3>Ice-T SVU</h3>
+          <img src="icetsvu.png" alt="Ice-T SVU: Procedurally generated screenshots of Ice-T in SVU" />
+          <p>Procedurally generated screenshots of Ice-T in SVU.</p>
+          <div class="tech">⚙️ Python, imageMagick</div>
+        </div>
+      </a>
+      <a href="https://mastodon.social/@carmensandiego" target="_blank" aria-label="Carmen Sandiego on Mastodon" class="card-link">
+        <div class="card">
+          <h3>Carmen Sandiego</h3>
+          <img src="carmensandiego.png" alt="Carmen Sandiego: A masto community inspired bot" />
+          <p>Carmen Sandiego has stolen your [x]! A masto community inspired bot.</p>
+          <div class="tech">⚙️ Python</div>
+        </div>
+      </a>
+      <!-- OFFLINE CARDS MOVED TO END -->
+      <div class="card offline">
+        <h3>SVU Warnings (Offline)</h3>
+        <img src="svufuturedrugs.png" alt="SVU Warnings: Vintage arcade warning screens based on fake drugs from Ice-T SVU (Offline)" />
+        <p>Vintage arcade warning screens based on fake drugs from Ice-T SVU.</p>
+        <div class="tech">⚙️ Python, imageMagick</div>
+      </div>
+      <div class="card offline">
+        <h3>Twilight Zone Intros (Offline)</h3>
+        <img src="rodserlingzone.png" alt="Twilight Zone Intros: Procedurally generated Twilight Zone Intros using hosts from every series (Offline)" />
+        <p>Procedurally generated Twilight Zone Intros using hosts from every series.</p>
+        <div class="tech">⚙️ Python, imageMagick</div>
+      </div>
+      <div class="card offline">
+        <h3>Spanish Flashcards (Offline)</h3>
+        <img src="spanish_flashcards.png" alt="Spanish Flashcards: Spanish flashcards using CW field to hide definitions (Offline)" />
+        <p>Spanish flashcards using CW field to hide definitions.</p>
+        <div class="tech">⚙️ Python, Merriam-Webster API</div>
+      </div>
+      <div class="card offline">
+        <h3>Lunch Oracle (Offline)</h3>
+        <img src="lunch_oracle.png" alt="Lunch Oracle: An interactive bot which returns a random restaurant based on city (Offline)" />
+        <p>An interactive bot which returns a random restaurant based on city.</p>
+        <div class="tech">⚙️ Python, Foursquare API</div>
+      </div>
+      <div class="card offline">
+        <h3>Botflix (Offline)</h3>
+        <img src="botflix.png" alt="Botflix: Procedurally generated, mildly ridiculous, Movie and TV synopses (Offline)" />
+        <p>Procedurally generated, mildly ridiculous, Movie and TV synopses.</p>
+        <div class="tech">⚙️ Python</div>
+      </div>
+      <div class="card offline">
+        <h3>Bizbot (Offline)</h3>
+        <img src="bizbot.png" alt="Bizbot: An interactive bot which procedurally generates business cards on demand (Offline)" />
+        <p>An interactive bot which procedurally generates business cards on demand.</p>
+        <div class="tech">⚙️ Python, imageMagick</div>
+      </div>
     </div>
   </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>ChestBot ATM</h3>
-      <a href="https://mastodon.social/@chest_bot_atm" target="_blank"><img src="atm.png" height="200px" alt="@chest_bot_atm@mastodon.social"/></a>
-      <p>Saves your currency and up to 6 items received from Chest Bot. </p>
-      <p>⚙️  Python, SQLite</p>
-      <br />
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Shop Keeper</h3>
-      <a href="https://mastodon.social/@chest_bot_shop" target="_blank"><img src="shop_keeper.png" height="200px" alt="@chest_bot_shop@mastodon.social"/></a>
-      <p>Purchase items using currency from Chest Bot, which has been deposited to @ATM.</p>
-      <p>⚙️  Python, SQLite</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Magic Aye</h3>
-      <a href="https://mastodon.social/@magic_aye" target="_blank"><img src="magic_aye.png" height="200px" alt="@magic_aye@mastodon.social"/></a>
-      <p>Procedurally generated autostereograms, aka: magic eye images.</p>
-      <p>⚙️  Python, imageMagick</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Ice-T SVU</h3>
-      <a href="https://mastodon.social/@icetsvu" target="_blank"><img src="icetsvu.png" height="200px" alt="@icetsvu@mastodon.social"/></a>
-      <p>Procedurally generated screenshots of Ice-T in SVU.</p>
-      <p>⚙️  Python, imageMagick</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>SVU Warnings (Offline)</h3>
-      <img src="svufuturedrugs.png" height="200px" alt="Offline"/>
-      <p>Vintage arcade warning screens based on fake drugs from Ice-T SVU.</p>
-      <p>⚙️  Python, imageMagick</p>
-      <br />
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Twilight Zone Intros (Offline)</h3>
-      <img src="rodserlingzone.png" height="200px" alt="Offline"/>
-      <p>Procedurally generated Twilight Zone Intros using hosts from every series.</p>
-      <p>⚙️  Python, imageMagick</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Spanish Flashcards (Offline)</h3>
-      <img src="spanish_flashcards.png" height="200px" alt="Offline"/>
-      <p>Spanish flashcards using CW field to hide definitions.</p>
-      <p>⚙️  Python, Merriam-Webster API</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Lunch Oracle (Offline)</h3>
-      <img src="lunch_oracle.png" height="200px" alt="Offline"/>
-      <p>An interactive bot which returns a random restaurant based on city.</p>
-      <p>⚙️  Python, Foursquare API</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Botflix (Offline)</h3>
-      <img src="botflix.png" height="200px" alt="Offline"/>
-      <p>Procedurally generated, mildly ridiculous, Movie and TV synopses.</p>
-      <p>⚙️  Python</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Carmen Sandiego</h3>
-      <a href="https://mastodon.social/@carmensandiego" target="_blank"><img src="carmensandiego.png" height="200px" alt="@carmensandiego@mastodon.social"/></a>
-      <p>Carmen Sandiego has stolen your [x]! A masto community inspired bot.</p>
-      <p>⚙️  Python</p>
-      <br />
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <br />
-      <h3>Bizbot (Offline)</h3>
-      <img src="bizbot.png" height="200px" alt="Offline"/>
-      <p>An interactive bot which procedurally generates business cards on demand.</p>
-      <p>⚙️  Python, imageMagick</p>
-      <br />
-    </div>
-  </div>
-
 </body>
 </html>
